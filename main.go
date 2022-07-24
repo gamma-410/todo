@@ -16,17 +16,24 @@ func main() {
 
   if err != nil {
     fmt.Println("Error: Cannot find filename.")
-  }
+  } // エラー処理
 
   switch str {
     case "list":
-      data := make([]byte, 1024)
+      data := make([]byte, 1024) 
+      // UTF-8 - English: 1byte, Japanese: 3byte
+      // data - ファイルに入っている文字列を格納するスライス
+
       count, err := f.Read(data)
-    
+      // f.Read(data) - おそらくこの時に読み込んだデータをdataスライスに渡してる...?
+      // count - Read()をした結果、何byte格納されているかがint型で入っている
+
       if err != nil {
         fmt.Println("Error: Failed to read the file.")
-      }
-      fmt.Println(string(data[:count]))
+      } // エラー処理
+
+      fmt.Println(data[:count])
+      // この形は Slice[:end] - data の先頭から end -1 までを取得
 
     case "add":
       return
@@ -35,9 +42,9 @@ func main() {
       return
 
     default:
-      fmt.Println("Error: No arguments are specified.")
+      fmt.Println("Error: Command not found.")
       return
 
   }
-
+  
 }
