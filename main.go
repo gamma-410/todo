@@ -15,7 +15,7 @@ func main() {
   f, err := os.Open("todo.txt")
 
   if err != nil {
-    fmt.Println("Error: Cannot find filename.")
+    panic(err)
   } // エラー処理
 
   switch str {
@@ -29,11 +29,12 @@ func main() {
       // count - Read()をした結果、何byte格納されているかがint型で入っている
 
       if err != nil {
-        fmt.Println("Error: Failed to read the file.")
+        panic(err)
       } // エラー処理
 
-      fmt.Println(data[:count])
+      fmt.Println(string(data[:count]))
       // この形は Slice[:end] - data の先頭から end -1 までを取得
+      // stirng()で囲って変換してやる
 
     case "add":
       return
