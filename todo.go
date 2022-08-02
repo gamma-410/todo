@@ -12,13 +12,15 @@ func main() {
   switch arg {
     case "init":
       initTodo()
-    case "commit":
+    case "add":
       arg1 := flag.Arg(1)
-      commit(arg1)    
+      add(arg1)    
     case "list":
       list()
     case "delete":
-
+    
+    default:
+      fmt.Println("error: received command was not found.")
   }
 }
 
@@ -33,7 +35,7 @@ func initTodo() {
   fmt.Println("success: successfully initialized todo.")
 }
 
-func commit(arg string) { 
+func add(arg string) { 
   file, err := os.OpenFile(".todo", os.O_WRONLY|os.O_APPEND, 0666)
   // 引数: ファイルのパス, フラグ, パーミッション
   
@@ -47,7 +49,7 @@ func commit(arg string) {
   fmt.Fprintln(file, arg) 
   // "F" がついてるものは書き込み先を明示的に指定できる fmt.Fprintln(パス, 内容)
 
-  fmt.Println("Successfully written todo.")
+  fmt.Println("success: successfully written todo.")
 }
 
 func list() {
