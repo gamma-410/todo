@@ -2,18 +2,22 @@
 Goの練習で小型なtodoを作りました。
 
 ## 使い方
+### インストール
+```bash
+$ go install
+```
 ### コマンド
 .todo を 初期化
 ```bash
-$ ./todo init
+$ todo init
 ```
 タスクの追加
 ```bash
-$ ./todo add 【タスク名】
+$ todo add 【タスク名】
 ```
 タスク一覧を表示
 ```bash
-$ ./todo list
+$ todo list
 ```
 
 ## license
