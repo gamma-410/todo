@@ -48,8 +48,6 @@ func add(arg string) {
   
   fmt.Fprintln(file, arg) 
   // "F" がついてるものは書き込み先を明示的に指定できる fmt.Fprintln(パス, 内容)
-
-  fmt.Println("success: successfully written todo.")
 }
 
 func list() {
