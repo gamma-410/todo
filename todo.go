@@ -18,7 +18,7 @@ func main() {
 	case "list":
 		list()
 	case "delete":
-
+		deleted()
 	default:
 		fmt.Println("error: received command was not found.")
 	}
@@ -71,4 +71,8 @@ func list() {
 
 	fmt.Println(string(data[:count]))
 	// この形は Slice[:end] - data の先頭から end -1 までを取得
+}
+
+func deleted() {
+	fmt.Println("削除機能は実装予定です。")
 }
